@@ -25,14 +25,24 @@ function getajaxHttp() {
 /**
  * 发送ajaxGet请求
  * @param url
+ * @param delay
  */
-function ajaxGet(url){
+function ajaxGet(url,delay){
 
     var xmlHttp  = getajaxHttp();
     xmlHttp.open("GET",url);
     xmlHttp.send(null);
+
+    var timeout = true;
+    setTimeout(function () {
+        if(timeout){
+            //ajax请求超时，在此处理
+        }
+    }, delay);
+
     xmlHttp.onreadystatechange = function() {
         if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {
+            timeout = false;
             alert('success');
         } else {
             alert('fail');
@@ -186,10 +196,14 @@ function getWindowHeight() {
     }
 }
 /*
- 网页可见区域宽： document.body.clientWidth
- 网页可见区域高： document.body.clientHeight
- 网页可见区域宽： document.body.offsetWidth (包括边线的宽)
- 网页可见区域高： document.body.offsetHeight (包括边线的高)
+ 浏览器视口的内部高度，包括滚动条 ：window.innerHeight
+ 浏览器视口的内部宽度，包括滚动条 ：window.innerWidth
+ 浏览器视口的内部高度，不包括滚动条 ：document.documentElement.clientHeight
+ 浏览器视口的内部宽度，不包括滚动条 ：document.documentElement.clientWidth
+ 网页整体域宽，不包括滚动条 ：document.body.clientWidth
+ 网页整体域高，不包括滚动条 ：document.body.clientHeight
+ 网页可见区域宽，不包括滚动条： document.body.offsetWidth (包括边线的宽)
+ 网页可见区域高，不包括滚动条： document.body.offsetHeight (包括边线的高)
  网页正文全文宽： document.body.scrollWidth
  网页正文全文高： document.body.scrollHeight
  网页被卷去的高： document.body.scrollTop
@@ -198,7 +212,7 @@ function getWindowHeight() {
  网页正文部分左： window.screenLeft
  屏幕分辨率的高： window.screen.height
  屏幕分辨率的宽： window.screen.width
- 屏幕可用工作区高度： window.screen.availHeight
+ 屏幕可用工作区高度，不含任务栏： window.screen.availHeight
  屏幕可用工作区宽度： window.screen.availWidth
  */
 
@@ -281,7 +295,7 @@ Array.prototype.binarySearch = function(value) {
     var index = 0;
     var find = false;
     var left = 0;
-    var right= this.length;
+    var right = this.length;
 
     while(left <= right)
     {
