@@ -322,6 +322,19 @@ Array.prototype.binarySearch = function(value) {
     }
 };
 
+/**
+ * 打印对象成员
+ * @param obj
+ */
+function writeObj(obj){
+    var description = "";
+    for(var i in obj){
+        var property=obj[i];
+        description+=i+" = "+property+"\n";
+    }
+    console.log(description);
+}
+
 /*
  请用CSS定义p标签，要求实现以下效果: 字体颜色在IE6下为黑色(#000000)；IE7下为红色(#ff0000)；而其他浏览器下为绿色(#00ff00)。
  p{
