@@ -32,3 +32,41 @@
     box-shadow:0 1px 30px rgba(59,255,255,1);
   }
 }
+
+/*字体小于12px方法*/
+.txt{/*方法一*/
+  font-size:12px;
+  -webkit-transform: scale(.5);
+          transform: scale(.5);
+}
+.txt{/*方法二*/
+  font-size:12px;
+  zoom: .5;
+}
+
+/*css div完成一个四角无hover效果的圆*/
+.div{
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  cursor: pointer;
+  border-radius: 50%; /*四角自动无hover效果*/
+}
+
+/*css background-size*/
+/*
+  不支持写入 background 缩写方式。
+  cover：
+    将背景图像等比缩放到完全覆盖容器，背景图像有可能超出容器。
+  contain：
+    将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。（会变形）
+*/
+
+/*清除浮动*/
+/*way 1*/
+.clearfix{overflow:hidden;_zoom:1;}
+/*way 2*/
+.clearfix{overflow:auto;_height:1%}
+/*way 3*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}
