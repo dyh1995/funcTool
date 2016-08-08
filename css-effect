@@ -1,0 +1,34 @@
+/*按钮呼吸灯css效果*/
+.btn{
+  background-image: -ms-linear-gradient(#21abda,#21a1d0);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#21abda), to(#21a1d0));
+  background-image: -moz-linear-gradient(#21abda,#21a1d0);
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-name: breathe;
+  -webkit-animation-duration: 2700ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation:ease-in-out breathe 2700ms infinite alternate;
+}
+@keyframes breathe{
+  0% { 
+    opacity: .8; 
+    box-shadow:0 1px 2px rgba(255,255,255,0.1);
+  }
+  100% { 
+    opacity: 1; 
+    border:1px solid rgba(59,235,235,1); 
+    box-shadow:0 1px 30px rgba(59,255,255,1);
+  }
+}
+@-webkit-keyframes breathe {
+  0% { 
+    opacity: .8; 
+    box-shadow:0 1px 2px rgba(255,255,255,0.1);
+  }
+  100% { 
+    opacity: 1; 
+    border:1px solid rgba(59,235,235,1); 
+    box-shadow:0 1px 30px rgba(59,255,255,1);
+  }
+}
