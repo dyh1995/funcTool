@@ -34,14 +34,11 @@
 }
 
 /*字体小于12px方法*/
-.txt{/*方法一*/
-  font-size:12px;
-  -webkit-transform: scale(.5);
-          transform: scale(.5);
-}
-.txt{/*方法二*/
-  font-size:12px;
-  zoom: .5;
+.txt{/*适用于块级元素，若要使<a>中的文字小于12px，需要将display设置为block或者inline-block*/
+  font-family: "Microsoft YaHei"; /*chrome默认为宋体SimSun，Firefox为Microsoft YaHei,不指定字体时字体大小不是9px*/
+  font-size:9px;
+  -webkit-transform: scale(.75);
+     -moz-transform: scale(1);  /*火狐默认可以显示12px以下的字体，不给此属性也可以*/
 }
 
 /*css div完成一个四角无hover效果的圆*/
@@ -70,3 +67,19 @@
 /*way 3*/
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .clearfix{*+height:1%;}
+
+/*<input>与<button>并列时高度不一致问题*/
+/*
+  input浏览器默认box-sizing样式为content-box
+  button浏览器默认box-sizing样式为border-box
+  解决方法：
+*/
+input{
+  height: 40px;
+}
+button{
+  height: 40px;
+  -webkit-box-sizing : content-box ;
+     -moz-box-sizing : content-box ;
+          box-sizing : content-box ;
+}
