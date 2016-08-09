@@ -121,6 +121,17 @@ RegExp.isObject = function (obj) {
 };
 
 /**
+ * 校验对象是否为空
+ */
+var isEmptyObj = function(Obj){
+    var isEmpty = true;
+    for(var key in Obj){
+        isEmpty = false;
+    }
+    return isEmpty;
+};
+
+/**
  * 验证一个字符串时候是email
  * @param str
  * @returns {boolean}
