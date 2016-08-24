@@ -84,9 +84,20 @@ button{
           box-sizing : content-box ;
 }
 
-遇到个关于Date.parse()的坑，分享下
+/*--------------浏览器兼容性的坑---------------*/
+
+1.遇到个关于Date.parse()的坑，分享下
    ie下Date.parse()参数格式为MM-dd-yyyy HH:mm:ss时
    例如Date.parse('8-9-2016');会正确返回时间戳，而Date.parse('2016-8-9');返回NaN
    chrome参数格式为yyyy-MM-dd HH:mm:ss或MM-dd-yyyy HH:mm:ss均可
    firefox和ie相反，参数格式为yyyy-MM-dd HH:mm:ss会正确返回时间戳，MM-dd-yyyy HH:mm:ss格式则不会
 另外ie下无法解析24:00，只能解析00:00，chrome和firefox可以解析24:00
+
+2.
+  [ie] new Date().tolocaleDateString();              // '2016年8月24日'
+       new Date().tolocaleTimeString();              // '11:28:35'
+  [chrome,firefox] new Date().tolocaleDateString();  // '2016/8/24'
+                   new Date().tolocaleTimeString();  // '上午11:28:35'
+
+3.
+  [ie edge] Date().tolocaleDateString();             // '2016年8月24日'长度16，会增加控制字符
