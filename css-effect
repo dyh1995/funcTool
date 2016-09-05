@@ -1,4 +1,4 @@
-/*按钮呼吸灯css效果*/
+/* 按钮呼吸灯css效果 */
 .btn{
   background-image: -ms-linear-gradient(#21abda,#21a1d0);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#21abda), to(#21a1d0));
@@ -33,7 +33,7 @@
   }
 }
 
-/*字体小于12px方法*/
+/* 字体小于12px方法 */
 .txt{/*适用于块级元素，若要使<a>中的文字小于12px，需要将display设置为block或者inline-block*/
   font-family: "Microsoft YaHei"; /*chrome默认为宋体SimSun，Firefox为Microsoft YaHei,不指定字体时字体大小不是9px*/
   font-size:9px;
@@ -41,7 +41,7 @@
      -moz-transform: scale(1);  /*火狐默认可以显示12px以下的字体，不给此属性也可以*/
 }
 
-/*css div完成一个四角无hover效果的圆*/
+/* css div完成一个四角无hover效果的圆 */
 .div{
   width: 100px;
   height: 100px;
@@ -50,7 +50,7 @@
   border-radius: 50%; /*四角自动无hover效果*/
 }
 
-/*css background-size*/
+/* css background-size */
 /*
   不支持写入 background 缩写方式。
   cover：
@@ -59,7 +59,7 @@
     将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。（会变形）
 */
 
-/*清除浮动*/
+/* 清除浮动 */
 /*way 1*/
 .clearfix{overflow:hidden;_zoom:1;}
 /*way 2*/
@@ -68,7 +68,7 @@
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .clearfix{*+height:1%;}
 
-/*<input>与<button>并列时高度不一致问题*/
+/* <input>与<button>并列时高度不一致问题 */
 /*
   input浏览器默认box-sizing样式为content-box
   button浏览器默认box-sizing样式为border-box
@@ -84,7 +84,7 @@ button{
           box-sizing : content-box ;
 }
 
-/*父子元素margin合并的解决方法*/
+/* 父子元素margin合并的解决方法 */
 当两个垂直外边距相遇时，它们将形成一个外边距，合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。
 1. 父层div加overflow:hidden;
 2. 父层div加padding-top: 1px;或者 border-top: 1px solid transparent;
@@ -93,13 +93,30 @@ button{
 5. 父元素加上绝对定位
 6. 父元素dispaly:inline-block;或者display:table-cell;
 
-/*jQuery mouseover与mouseenter,mouseout与mouseleave的区别*/
+/* jQuery mouseover与mouseenter,mouseout与mouseleave的区别 */
 mouseover与mouseenter
 不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。
 只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。
 mouseout与mouseleave
 不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。
 只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。
+
+/* call和apply用法及区别  */
+call方法: 
+语法：call([thisObj[,arg1[, arg2[,   [,.argN]]]]]) 
+定义：调用一个对象的一个方法，以另一个对象替换当前对象。 
+说明： 
+call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。 
+如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。 
+
+apply方法： 
+语法：apply([thisObj[,argArray]]) 
+定义：应用某一对象的一个方法，用另一个对象替换当前对象。 
+说明： 
+如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。 
+如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。
+
+区别在于 call 的第二个参数可以是任意类型连续参数，而apply的第二个参数必须是数组。
 
 /*--------------浏览器兼容性的坑---------------*/
 
