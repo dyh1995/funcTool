@@ -130,6 +130,13 @@ typeof {}             ==>  object
 typeof function(){}   ==>  object
 typeof NaN            ==>  number
 typeof /^\s/g         ==>  object
+null instanceof Object
+//false
+false == undefined
+//false
+NaN == NaN
+//false
+
 
 /*--------------浏览器兼容性的坑---------------*/
 
