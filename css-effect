@@ -118,6 +118,19 @@ apply方法：
 
 区别在于 call 的第二个参数可以是任意类型连续参数，而apply的第二个参数必须是数组。
 
+/* typeof */
+typeof '1'            ==>  string
+typeof 1              ==>  number
+typeof ture           ==>  boolean
+typeof TRUE           ==>  undefined
+typeof null           ==>  object
+typeof undefined      ==>  undefined
+typeof []             ==>  object
+typeof {}             ==>  object
+typeof function(){}   ==>  object
+typeof NaN            ==>  number
+typeof /^\s/g         ==>  object
+
 /*--------------浏览器兼容性的坑---------------*/
 
 1.遇到个关于Date.parse()的坑，分享下
