@@ -154,7 +154,12 @@ false == undefined
 //false
 NaN == NaN
 //false
-
+Object instanceof Function
+//true
+Function instanceof Object
+//true
+-9%2
+//-1
 
 /*--------------浏览器兼容性的坑---------------*/
 
