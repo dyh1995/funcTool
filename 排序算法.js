@@ -223,42 +223,19 @@ function merge(sr, tr, start, mid, end){
  */
 
 /* 快速排序 */
-function quickSort(arr){
-    QSort(arr, 0, arr.length-1);
-
-    alert(arr);
-}
-
-function QSort(arr, low, high){
-    var pivot;	/*中轴*/
-
-    if(low < high){
-        pivot = partition(arr, low, high);	/*将L均分为两部分*/
-
-        QSort(arr,low,pivot-1);	/*对低子表递归*/
-        QSort(arr,pivot+1,high);	/*对高子表递归*/
-    }
-}
-
-function partition(arr, low, high){
-    var pivotkey = arr[low];
-
-    while(low < high){
-        while(low < high && arr[high] >= pivotkey){
-            high--;
-        }
-
-        var temp = arr[low];
-        arr[low] = arr[high];
-        arr[high] = temp;	/* 将比中轴小的记录交换到低端 */
-
-        while(low < high && arr[low] <= pivotkey){
-            low++;
-        }
-        temp = arr[low];
-        arr[low] = arr[high];
-        arr[high] = temp;	/* 将比中轴大的记录交换到高端 */
-    }
-
-    return low;		/*返回中轴*/
-}
+var quickSort = function(arr) {
+　　if (arr.length <= 1) { return arr; }
+　　var pivotIndex = Math.floor(arr.length / 2);
+　　var pivot = arr.splice(pivotIndex, 1)[0];
+　　var left = [];
+　　var right = [];
+　　for (var i = 0; i < arr.length; i++){
+　　　　if (arr[i] < pivot) {
+　　　　　　left.push(arr[i]);
+　　　　} else {
+　　　　　　right.push(arr[i]);
+　　　　}
+　　}
+　　
+　　return quickSort(left).concat([pivot], quickSort(right));
+};
