@@ -367,6 +367,18 @@ function writeObj(obj){
     console.log(description);
 }
 
+var currTs = new Date();
+var currDate = currTs.getFullYear() + '_' + (currTs.getMonth() + 1) + '_' + currTs.getDate();
+var cookieKey = 'showCoinPopDate';
+if(getCookie(cookieKey) !== currDate){  //当天还未显示过
+   setCookie(cookieKey,currDate);
+   var armyDayRank = 3;
+   var goldCoin = 233;
+   $('#act07_mask_3 .act07_mask_3_rank').text(armyDayRank);
+   $('#act07_mask_3 .act07_mask_3_coin').text(goldCoin);
+   $('#act07_mask_3').show();
+}
+
 /*
  请用CSS定义p标签，要求实现以下效果: 字体颜色在IE6下为黑色(#000000)；IE7下为红色(#ff0000)；而其他浏览器下为绿色(#00ff00)。
  p{
