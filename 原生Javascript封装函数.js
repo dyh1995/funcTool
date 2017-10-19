@@ -1,7 +1,7 @@
 /**
  * 得到ajax对象
  */
-function getajaxHttp() {
+;function getajaxHttp() {
     var xmlHttp;
     try {
         // Firefox, Opera 8.0+, Safari
